@@ -24,17 +24,17 @@ void PinInterrupt_ISR (void) interrupt 7
     SFRS = 0;
     switch(PIF)
     {
-      case 0x01:
-				condition = FALSE;
-				Count++;
-				if(Count>=9)Count=9;
-			break;
-      case 0x02:
-				condition = FALSE;
-				if(Count==0)Count=1;
-				Count--;
-				break;
-      default: break;
+    case 0x01:
+		condition = FALSE;
+		Count++;
+		if(Count>=9)Count=9;
+		break;
+    case 0x02:
+		condition = FALSE;
+		if(Count==0)Count=1;
+		Count--;
+		break;
+    default: break;
     }
     PIF = 0; 
   
@@ -55,24 +55,24 @@ void main (void) {
 while(1){
 	switch(Count){      
     case 0:
-        P0 &= ~(1 << 0);
-				P2 &= ~((1 << 0)|(1 << 1)|(1 << 2)|(1 << 3)|(1 << 4)|(1 << 5));
-				P2 |= (1 << 0)|(1 <<1)|(1 << 2)|(1 << 3)|(1 << 4)|(1 <<5);//0
-				condition = TRUE;
-        break;
+		P0 &= ~(1 << 0);
+		P2 &= ~((1 << 0)|(1 << 1)|(1 << 2)|(1 << 3)|(1 << 4)|(1 << 5));
+		P2 |= (1 << 0)|(1 <<1)|(1 << 2)|(1 << 3)|(1 << 4)|(1 <<5);//0
+		condition = TRUE;
+    break;
     case 1:
-        P0 &= ~(1 << 0);
-				P2 &= ~((1 << 0)|(1 << 1)|(1 << 2)|(1 << 3)|(1 << 4)|(1 << 5));
-				P2 |= (1 <<1)|(1 << 2);//1
-				condition = TRUE;
-        break;
+		P0 &= ~(1 << 0);
+		P2 &= ~((1 << 0)|(1 << 1)|(1 << 2)|(1 << 3)|(1 << 4)|(1 << 5));
+		P2 |= (1 <<1)|(1 << 2);//1
+		condition = TRUE;
+    break;
     case 2:
-        P0 &= ~(1 << 0);
-				P2 &= ~((1 << 0)|(1 << 1)|(1 << 2)|(1 << 3)|(1 << 4)|(1 << 5));
-				P2 |= (1 << 0)|(1 <<1)|(1 << 3)|(1 << 4);//2
-				P0 |= (1 <<0);//2
-				condition = TRUE;
-        break;
+		P0 &= ~(1 << 0);
+		P2 &= ~((1 << 0)|(1 << 1)|(1 << 2)|(1 << 3)|(1 << 4)|(1 << 5));
+		P2 |= (1 << 0)|(1 <<1)|(1 << 3)|(1 << 4);//2
+		P0 |= (1 <<0);//2
+		condition = TRUE;
+    break;
     case 3:
         P0 &= ~(1 << 0);
 				P2 &= ~((1 << 0)|(1 << 1)|(1 << 2)|(1 << 3)|(1 << 4)|(1 << 5));
