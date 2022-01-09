@@ -13,8 +13,9 @@
 *  Autor: ScuratovaAnna + PivnevNikolay
 */
 #include "ML51.h"
-#define Led P03
-bit condition = TRUE;
+#include "Init.h"
+#define Led P01
+BIT condition = TRUE;//bit
 uint8_t Count = 0;
 //-----------------------------------------------------------------------//
 void PinInterrupt_ISR (void) interrupt 7
@@ -42,15 +43,7 @@ void PinInterrupt_ISR (void) interrupt 7
 }
 //-----------------------------------------------------------------------//
 void main (void) {
-	MFP_P16_GPIO;
-	MFP_P17_GPIO;
-	GPIO_SetMode(Port1,BIT6,GPIO_MODE_INPUT);
-	GPIO_SetMode(Port1,BIT7,GPIO_MODE_INPUT);
-	GPIO_EnableInt(PIT0,RISING,EDGE,Port1,6);
-	GPIO_EnableInt(PIT1,RISING,EDGE,Port1,7);
-	GPIO_SetMode(Port2,BIT0|BIT1|BIT2|BIT3|BIT4|BIT5,GPIO_MODE_PUSHPULL);
-	GPIO_SetMode(Port0,BIT0|BIT3,GPIO_MODE_PUSHPULL);
-	ENABLE_GLOBAL_INTERRUPT; 
+	Init(); 
 //-----------------------------------------------------------------------//
 while(1){
 	switch(Count){      
