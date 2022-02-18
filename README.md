@@ -7,6 +7,8 @@
 
 В качестве основного целевого устройства используется микроконтроллер [ML51EB9AE.](https://www.nuvoton.com/products/microcontrollers/8bit-8051-mcus/low-power-ml51-series/ml51eb9ae/)    
 
+![alt-текст](https://github.com/ScuratovaAnna/NuMicro_8051-/blob/master/photo/002.jpg "Functional Block Diagram.")  
+
 
 
 
